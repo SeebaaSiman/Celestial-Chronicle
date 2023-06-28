@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LayoutPage } from "../style/LayoutPage";
 import { PageError, LandingPage, Home, Age } from "@/pages";
+import { Carousel } from "../components/carousel/Carousel";
 
 export const router = createBrowserRouter([
   {
@@ -12,8 +13,9 @@ export const router = createBrowserRouter([
         index: true,
         element: <LandingPage />,
       },
-      {path: "Home",element: <Home />},
-      {path: "Age",element: <Age />},
+      { path: "Home", element: <Home /> },
+      { path: "Age", element: <Age /> },
+      { path: "Planets", element: <Carousel /> },
     ],
   },
 ]);

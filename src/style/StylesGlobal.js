@@ -30,6 +30,9 @@ export const StylesGlobal = createGlobalStyle`
     /* overflow-x: hidden; */
     scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden;
+}
 html{
     background-color: #e2dfdd;
     color: #000;

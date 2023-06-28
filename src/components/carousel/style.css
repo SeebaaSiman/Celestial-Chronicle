@@ -1,0 +1,162 @@
+/* .cm-slider__wrapper {
+  width: 100%;
+  overflow-x: scroll;
+  height: 100vh;
+} */
+.cm-slider {
+  display: flex;
+  gap: 5vmin;
+  user-select: none; /* evita que se seleccione el texto */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+}
+.cm-slider__image {
+  min-width: 45vmin;
+  max-width: 45vmin;
+  height: 65vmin;
+  object-fit: cover; /*hace que la imagen se ajuste y recorte según el tamaño del contenedor */
+  object-position: center center; /*centra la imagen tanto horizontal como vertical*/
+}
+
+/* Si hay evento hover hay interaccion con el mouse */
+/* @media (hover: hover) {
+  .cm-slider__wrapper {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    width: 100%;
+  }
+  @media (max-width: 1120px) {
+    .cm-slider__image {
+      object-position: 0% center;
+    }
+  }
+} */
+
+/* No hay evento hover por lo tanto es una pantalla táctil  */
+@media (hover: none) {
+  .cm-slider__image {
+    min-width: 65vmin;
+    max-width: 65vmin;
+    height: 85vmin;
+  }
+  .cm-slider > :first-child {
+    margin-left: 5vmin;
+  }
+  /* Some display:flex and ::after voodoo to get a margin-right in overflow-x:scroll https://stackoverflow.com/a/38997047 */
+  .cm-slider > :last-child {
+    display: flex;
+  }
+  .cm-slider > :last-child::after {
+    content: "";
+    flex: 0 0 5vmin;
+  }
+  .cm-slider__wrapper {
+    overflow-x: hidden;
+    padding: 5vmin 0;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+  }
+}
+
+/* Estilos adicionales para la funcionalidad de pantalla completa */
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-image img {
+  max-width: 90%;
+  max-height: 90%;
+  animation: slideRight 0.8s ease-in-out forwards;
+}
+
+.fullscreen-close {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  animation: fadeInFromBottom 1s ease-in-out forwards;
+  & hover {
+    background-color: white;
+    color: black;
+  }
+}
+.fullscreen-prev,
+.fullscreen-next {
+  position: absolute;
+  top: 1%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.fullscreen-prev {
+  left: 1%;
+  animation: fadeInFromBottom 1s ease-in-out forwards;
+}
+
+.fullscreen-next {
+  right: 1%;
+  animation: fadeInFromBottom 1s ease-in-out forwards;
+}
+
+.counter {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  color: white;
+  animation: fadeInFromBottom 1s ease-in-out forwards;
+}
+
+.counter-number {
+}
