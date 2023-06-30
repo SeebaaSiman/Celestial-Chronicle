@@ -3,14 +3,28 @@ import styled, { keyframes } from "styled-components";
 // import bg from "@/assets/loaders/giphy.gif";
 import bg from "@/assets/modal.jpg";
 import { BoxStyle } from "@/style/StylesGlobal";
+export const Modal = () => {
+  return (
+    <>
+      {
+        // isLoading &&
+        ReactDOM.createPortal(
+          <ModalContainer bg={bg} />,
+          document.querySelector("#portal")
+        )
+      }
+    </>
+  );
+};
+
 const sweep = keyframes`
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-`;
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  `;
 
 const ModalContainer = styled.div`
   /* position: absolute; */
@@ -29,16 +43,3 @@ const ModalContainer = styled.div`
   z-index: 400;
   animation: ${sweep} 3s ease-out forwards;
 `;
-export const Modal = () => {
-  return (
-    <>
-      {
-      // isLoading &&
-        ReactDOM.createPortal(
-          <ModalContainer bg={bg} />,
-          document.querySelector("#portal")
-        )
-        }
-    </>
-  );
-};
