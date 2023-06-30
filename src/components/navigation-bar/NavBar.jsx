@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import * as Unicons from "@iconscout/react-unicons";
 import { MenuButton } from "./MenuButton";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.gif";
 import {
   BgMenu,
   LinksContainer,

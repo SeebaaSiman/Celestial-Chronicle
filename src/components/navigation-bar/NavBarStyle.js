@@ -5,7 +5,7 @@ import { BoxStyle, device } from "@/style/StylesGlobal";
 export const NavBarContainer = styled.nav`
   width: 100%;
   height: 5rem;
-  background-color: red;
+  background-color: black;
   display: inline-flex;
   display: flex;
   justify-content: space-between;
