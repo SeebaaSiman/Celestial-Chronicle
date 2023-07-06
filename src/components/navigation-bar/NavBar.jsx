@@ -15,7 +15,8 @@ import { useNavBar } from "./useNavBar";
 export const NavBar = () => {
   const { clicked, handleLinkClick, toggleClicked } = useNavBar();
   const styleIcon = {
-    filter: " drop-shadow(1px 1px 1px #222)",
+    color:"white",
+    filter: " drop-shadow(1px 1px 1px #3333)",
     marginRight: "0.5rem",
     height: "100%",
   };

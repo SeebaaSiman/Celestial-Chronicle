@@ -67,7 +67,7 @@ export const LinksContainer = styled.div`
       color: #222;
       margin-top: 3rem;
       &:hover{
-        color:red;
+        color:white;
       }
     }
   }
@@ -98,17 +98,33 @@ export const Menu = styled.div`
     display: none;
   }
 `;
+
+const showBg = keyframes`
+ 0% {
+     background-position: 0% 50%;
+ }
+ 50% {
+   background-position: 100% 50%;
+   }
+ 100% {
+   background-position: 0% 50%;
+   }
+`
+
 export const BgMenu = styled.div`
-  background-color: #e2dfdd;
+  /* background-color: #e2dfdd; */
+  background: linear-gradient(45deg,#222, #333,#444,#555);
+  background-size: 200% 200%;
   position: absolute;
   top: -1000px;
   left: -1000px;
   width: 100%;
   height: 100%;
-  box-shadow: 1px 2px 3px black;
   z-index: -1;
   transition: all 0.6s ease;
   box-shadow: ${BoxStyle.boxShadow};
+  animation: ${showBg} 12s ease-in-out infinite;
+
   &.open-menu {
     border-radius: 0 0 20% 0;
     top: 0;

@@ -22,7 +22,6 @@ export const MenuButton = ({ toggleClicked, clicked }) => {
 };
 
 const Button = styled.div`
-
   .nav-icon-1 {
     width: 30px;
     height: 30px;
@@ -36,7 +35,7 @@ const Button = styled.div`
   .nav-icon-1 span {
     width: 5px;
     height: 5px;
-    background-color: #000;
+    background-color: #fff;
     display: block;
     border-radius: 50%;
     position: absolute;

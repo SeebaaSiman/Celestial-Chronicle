@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAgeOnPlanet } from "./helpers";
+import { getAgeOnPlanet } from "../helpers/getAgeOnPlanet";
 
 export const useAgeOnPlanet = (planetName, birthDate) => {
  const [age, setAge] = useState(null);

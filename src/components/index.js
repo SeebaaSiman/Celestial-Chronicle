@@ -1,3 +1,2 @@
-export * from './cursor';
-export * from './modal-main';
+export * from './carousel';
 export * from './navigation-bar';
