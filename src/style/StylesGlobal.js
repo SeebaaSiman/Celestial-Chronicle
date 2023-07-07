@@ -1,5 +1,4 @@
 import { createGlobalStyle, styled } from "styled-components";
-// import { Poppins } from "google-fonts";
 export const device = {
   sm: `(min-width: 480px)`,
   md: `(min-width: 768px)`,
@@ -14,10 +13,8 @@ export const BoxStyle = {
     'rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px'
 };
 export const ButtonStyle = styled.div`
-/* display: flex;
-justify-content: center;
-align-items: center; */
-  /* margin-top: 2rem; */
+  margin-left: auto;
+  margin-right: auto;
   height: 45px;
   width: 250px;
   border: 2px solid  rgba(255, 255, 255, 1);
@@ -48,16 +45,15 @@ export const StylesGlobal = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Inconsolata', monospace; */
   }
 *,*::before,*::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* cursor: none; */
-    /* user-select:none; */
-    /* overflow-x: hidden; */
+    user-select:none;
     scroll-behavior: smooth;
+    /* cursor: none; */
+    /* overflow-x: hidden; */
 }
 body {
   overflow-x: hidden;
@@ -65,7 +61,6 @@ body {
 html{
     background-color: #e2dfdd;
     color: #000;
-    font-family: "Oxygen" ,'Bebas Neue',sans-serif;
 }
 ::-webkit-scrollbar {
     width: 0;

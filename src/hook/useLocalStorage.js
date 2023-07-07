@@ -19,3 +19,6 @@ export const useLocalStorage = (key, initialValue) => {
  return [value, setLocalStorageValue, removeLocalStorageValue];
 };
 
+//const storedDate = localStorage.getItem('fechaNacimiento');
+
+// con el método getItem(key) obtengo los datos almacenados, los almacena en string, así que si quiero usar números o arrays. Puedes utilizar funciones como parseInt o JSON.parse

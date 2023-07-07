@@ -27,3 +27,6 @@ https://www.youtube.com/watch?v=mb8x1Zsj-oE&list=WL&index=78
   Es una galería con los planetas incluídos la luna que al hacer click entra y arroja información. Literal es todo visual, con la música de fondo va a quedar bien y no se hacen falta clicks ni que cambie el router.
 
 Funciona la página de planetas, anda mal en fullscreen el botón anterior y siguiente, no cambia las imágenes. Por ahí falta en la lócica usar useEffect o useMemo
+
+crear funciones que reciban el número de edad en... por el "useAgeOnPlanet" y convertirlo en años, meses,días, horas, minutos y segundos. De esa manera haré un reloj en tiempo real en cada cardPlanet.
+En F1 tengo un componente countdown
