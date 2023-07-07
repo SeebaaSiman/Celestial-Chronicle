@@ -1,3 +1,4 @@
+import { LoaderMoon } from "../Loader/LoaderMoon";
 import { BtnSubmit, Card, InputBox, Li, Ul } from "./CalendarStyle";
 import { useCalendarForm } from "./useCalendarForm";
 
@@ -9,6 +10,7 @@ export const CalendarForm = () => {
     arrOptionsYear,
     handleInputChange,
     onSubmit,
+    Loading,
   } = useCalendarForm();
 
   return (
@@ -50,9 +52,10 @@ export const CalendarForm = () => {
             </InputBox>
           );
         })}
-        <BtnSubmit type="submit">Enter</BtnSubmit>
+        <BtnSubmit type="submit">
+          {Loading ? <LoaderMoon /> : "Enter"}
+        </BtnSubmit>
       </form>
     </Card>
   );
 };
-// en BtnSubmit hacer un condicional, si no esta loading está el botón si es loading dentro de enter aparece un spiner bien simple. La idea es darle 2 segundos a que guarde en LocalStorage y luego me dirija a otra página

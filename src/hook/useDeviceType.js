@@ -31,3 +31,17 @@ const useDeviceType = () => {
 };
 
 export default useDeviceType;
+
+
+// import useDeviceType from "@/hook/useDeviceType";
+
+
+// const deviceType = useDeviceType();
+
+//paso el hook como prop para usar en estilos
+{/* <CountdownContainer deviceType={deviceType}> */}
+
+
+// width: ${(props) => (props.deviceType === "desktop" ? "" : "40%")};
+
+

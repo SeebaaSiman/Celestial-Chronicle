@@ -2,14 +2,29 @@ import styled, { keyframes } from "styled-components";
 import { BoxStyle, device } from "@/style/StylesGlobal";
 // import { NavLink } from "react-router-dom";
 
+const ShowInNavBar = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate3D(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+`
+
 export const NavBarContainer = styled.nav`
   width: 100%;
   height: 5rem;
+  box-shadow: ${BoxStyle.boxShadow};
+border-radius: 0 0 10px 10px;
+z-index: 200;
   background-color: black;
   display: inline-flex;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: ${ShowInNavBar} 1s ease-in-out;
 `;
 
 export const Logo = styled.img`
@@ -32,9 +47,12 @@ export const LinksContainer = styled.div`
   position: absolute;
   top: -700px;
   left: -2000px;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   .link {
     //
     filter: drop-shadow(3px 3px 3px #222);
@@ -84,10 +102,13 @@ export const LinksContainer = styled.div`
       display: none;
       transform: translateX(-20px);
     }
-    & .active .text {
-      display: inline;
-      text-decoration: underline;
-      animation: ${show} 1s ease-in-out;
+    .link{
+
+      &:hover .text {
+        display: inline;
+        text-decoration: underline;
+        animation: ${show} 1s ease-in-out;
+      }
     }
   }
   `;

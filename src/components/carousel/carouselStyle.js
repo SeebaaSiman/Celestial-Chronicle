@@ -108,10 +108,13 @@ export const ButtonPrev = styled(ButtonStyle)`
   animation: ${showInWithDown} 1s ease-in-out forwards;
   left: 1%;
 `;
+
 export const ButtonNext = styled(ButtonPrev)`
   left: 70%;
 `;
-
+export const ButtonBack = styled(ButtonPrev)`
+z-index: 200;
+`
 
 export const WrapperSlider = styled.div`
   width: 100%;

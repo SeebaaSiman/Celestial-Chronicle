@@ -1,14 +1,12 @@
-import { NavBar } from "@/components";
-import { useAgeOnPlanet } from "../hook/useAgeOnPlanet";
 import { styled } from "styled-components";
+import { NavBar } from "@/components";
+import { CardPlanet } from "@/components/cards/CardPlanet";
+import { usePageAge } from "../hook/usePageAge";
+import { FullScreenContent, useFullScreen } from "../components/carousel";
+import { dataImg } from "../helpers/dataImg";
 
 export const Age = () => {
-  const storedDate = localStorage.getItem("birthDate");
-  const birthDate = new Date(storedDate);
-  const ageOnMars = useAgeOnPlanet("Marte", birthDate);
-  const ageonMoon = useAgeOnPlanet("Luna", birthDate);
-  const ageonSaturno = useAgeOnPlanet("Saturno", birthDate);
-  const ageonEarth = useAgeOnPlanet("Tierra", birthDate);
+  const { arrAgeResults, storedDate } = usePageAge();
 
   return (
     <div>
@@ -23,12 +21,23 @@ export const Age = () => {
         para ese planeta
       </p>
       <p>Datos del local Storage: {storedDate}</p>
-      <p>Edad en Marte: {ageOnMars}</p>
-      <p>Edad en Luna: {ageonMoon}</p>
-      <p>Edad en Saturno: {ageonSaturno}</p>
-      <p>Edad en Tierra: {ageonEarth}</p>
-      <Card></Card>
+
+      <WrapperCards>
+        {arrAgeResults.map((a, index) => (
+          <CardPlanet key={index}>
+            <p>
+              Edad en {a.planet}: {a.result}
+            </p>
+          </CardPlanet>
+        ))}
+      </WrapperCards>
     </div>
   );
 };
-const Card = styled.div``;
+const WrapperCards = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+`;

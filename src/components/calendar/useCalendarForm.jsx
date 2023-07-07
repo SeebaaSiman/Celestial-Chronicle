@@ -27,10 +27,6 @@ export const useCalendarForm = () => {
     setShowOptionsDay(false);
   };
 
-  const [day, setDay] = useState("29");
-  const [month, setMonth] = useState("July");
-  const [year, setYear] = useState("1991");
-
   const handleOptionSelect = useCallback((value, inputName) => {
     if (inputName === "day") {
       setDay(value);
@@ -49,6 +45,10 @@ export const useCalendarForm = () => {
       setShowOptionsYear(false);
     }
   }, []);
+
+  const [day, setDay] = useState("29");
+  const [month, setMonth] = useState("July");
+  const [year, setYear] = useState("1991");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -121,6 +121,8 @@ export const useCalendarForm = () => {
       textSpan: "year",
     },
   ];
+
+  const [Loading, setLoading] = useState(false);
   const [birthDate, setBirthDate] = useLocalStorage("birthDate", "");
   const navigate = useNavigate();
   const onSubmit = (e) => {
@@ -132,7 +134,11 @@ export const useCalendarForm = () => {
     const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
     // Usa el hook useLocalStorage para guardar la fecha en el localStorage
     setBirthDate(formattedDate);
-    navigate("/Age");
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      navigate("/Age");
+    }, 2000);
   };
 
   return {
@@ -142,5 +148,6 @@ export const useCalendarForm = () => {
     arrOptionsYear,
     handleInputChange,
     onSubmit,
+    Loading,
   };
 };

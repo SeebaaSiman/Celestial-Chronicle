@@ -8,27 +8,19 @@ import {
   Slider,
   WrapperSlider,
   ButtonPrev,
+  ButtonBack,
 } from "./";
 import { NavLink } from "react-router-dom";
+import { dataImg } from "../../helpers/dataImg";
 
 export const Carousel = () => {
-  const data = [
-    { src: "https://unsplash.com/photos/ouo1hbizWwo/download?&amp;w=1280" },
-    { src: "https://unsplash.com/photos/ISg37AI2A-s/download?&amp;w=1280" },
-    { src: "https://unsplash.com/photos/6aY_0S-epZQ/download?&amp;w=1280" },
-    { src: "https://unsplash.com/photos/9gz3wfHr65U/download?&amp;w=1280" },
-    { src: "https://unsplash.com/photos/v3-zcCWMjgM/download?&amp;w=1280" },
-    { src: "https://unsplash.com/photos/9UUoGaaHtNE/download?&amp;w=1280" },
-    { src: "https://unsplash.com/photos/MUcxe_wDurE/download?&amp;w=1280" },
-    { src: "https://unsplash.com/photos/GcBuJkuiCpU/download?&amp;w=1280" },
-  ];
   const {
     cmSliderWrapper,
     cmSlider,
     imageRefs,
     handleMouseMove,
     currentIndex,
-  } = useSlider(data);
+  } = useSlider(dataImg);
   const {
     isFullScreen,
     handleImageClick,
@@ -36,14 +28,14 @@ export const Carousel = () => {
     handleExitFullScreen,
     handleNextClick,
     handlePrevClick,
-  } = useFullScreen(data);
+  } = useFullScreen(dataImg);
   return (
     <WrapperSlider ref={cmSliderWrapper}>
       <NavLink to="/Age">
-        <ButtonPrev>Back</ButtonPrev>
+        <ButtonBack>Back</ButtonBack>
       </NavLink>
       <Slider ref={cmSlider} onMouseMove={handleMouseMove}>
-        {data.map((item, index) => {
+        {dataImg.map((item, index) => {
           const imageRef = useRef(null);
           imageRefs.current[index] = imageRef;
 
@@ -61,12 +53,12 @@ export const Carousel = () => {
       <CounterContainer>
         <CounterLote className="counter-number">{currentIndex + 1}</CounterLote>
         <CounterLote className="counter-separator">/</CounterLote>
-        <CounterLote className="counter-total">{data.length}</CounterLote>
+        <CounterLote className="counter-total">{dataImg.length}</CounterLote>
       </CounterContainer>
 
       {isFullScreen && (
         <FullScreenContent
-          data={data}
+          data={dataImg}
           fullScreenIndex={fullScreenIndex}
           handleExitFullScreen={handleExitFullScreen}
           handleNextClick={handleNextClick}

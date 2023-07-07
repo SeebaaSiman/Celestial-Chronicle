@@ -14,7 +14,6 @@ export const Home = () => {
       <Content>
         <CalendarForm />
       </Content>
-      Agregarle el spiner o loader con useBounce al apretar enter
     </div>
   );
 };

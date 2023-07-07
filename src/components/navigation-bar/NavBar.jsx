@@ -29,17 +29,17 @@ export const NavBar = () => {
 
       <LinksContainer className={`${clicked ? "open-menu" : ""} `}>
         <NavLink onClick={handleLinkClick} className="link" to="/">
-          <Unicons.UilCalender style={styleIcon} />
+          <Unicons.UilEstate  style={styleIcon} />
           <span className="text">Home</span>
         </NavLink>
 
         <NavLink onClick={handleLinkClick} className="link" to="/Home">
-          <Unicons.UilAnalysis style={styleIcon} />
+          <Unicons.UilHourglass  style={styleIcon} />
           <span className="text">put your age</span>
         </NavLink>
 
         <NavLink onClick={handleLinkClick} className="link" to="/Planets">
-          <Unicons.UilNewspaper style={styleIcon} />
+          <Unicons.UilTelescope  style={styleIcon} />
           <span className="text">Planets </span>
         </NavLink>
 
