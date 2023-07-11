@@ -16,16 +16,16 @@ export const usePageAge = () => {
   const ageonPluton = useAgeOnPlanet("Plutón", birthDate);
 
   const arrAgeResults = [
-    { planet: "Earth", result: ageonEarth },
-    { planet: "Moon", result: ageonMoon },
-    { planet: "Mercúrio", result: ageonMercurio },
-    { planet: "Venus", result: ageonVenus },
-    { planet: "Mars", result: ageOnMars },
-    { planet: "Saturn", result: ageonSaturno },
-    { planet: "Júpiter", result: ageonJupiter },
-    { planet: "Urano", result: ageonUrano },
-    { planet: "Neptuno", result: ageonNeptuno },
-    { planet: "Plutón", result: ageonPluton },
+    { planet: "earth", result: ageonEarth },
+    { planet: "moon", result: ageonMoon },
+    { planet: "mercury", result: ageonMercurio },
+    { planet: "venus", result: ageonVenus },
+    { planet: "mars", result: ageOnMars },
+    { planet: "saturn", result: ageonSaturno },
+    { planet: "jupiter", result: ageonJupiter },
+    { planet: "uranus", result: ageonUrano },
+    { planet: "neptune", result: ageonNeptuno },
+    { planet: "pluto", result: ageonPluton },
   ];
 
   return { arrAgeResults, storedDate };

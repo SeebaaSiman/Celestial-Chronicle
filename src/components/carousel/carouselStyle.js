@@ -10,14 +10,16 @@ export const showInWithDown = keyframes`
       transform: translateY(0%);
     }
   `;
-export const slider = keyframes`
+export const showInFullScreen = keyframes`
    0% {
       opacity: 0;
-      transform: translateX(100%);
+      transform: scale(12%);
+      transform: translateX(-22%);
+
     }
     100% {
       opacity: 1;
-      transform: translateX(0%);
+      transform: scale(100%);
     }
   `;
 
@@ -28,33 +30,49 @@ export const FullScreenContainer = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: blue;
-  z-index: 200;
-
+  background-color: #000;
+  z-index: 100;
   img {
+position:absolute;
     width: 100%;
     height: 100%;
-    z-index: 500;
+    z-index: 200;
     object-fit: cover;
     object-position: center center;
-    animation: ${slider} 0.8s ease-in-out forwards;
+    animation: ${showInFullScreen} 0.8s ease-in-out forwards;
   }
 `;
+const showHover = keyframes`
+100%{
+  transform: translateY(-50%);
+  }
+`
+const showHoverOut = keyframes`
+0%{
+  transform: translateY(-50%);
+  }
+100%{
+  transform: translateY(0%);
+  }
+`
 export const ButtonClose = styled.button`
   position: absolute;
-  bottom: 2%;
+  bottom: 0%;
   left: 50%;
+  padding: .5rem;
   background-color: transparent;
+  border-radius:10px;
   border: none;
   color: white;
   font-size: 24px;
   z-index: 800;
   cursor: pointer;
-  animation: ${showInWithDown} 1s ease-in-out forwards;
+  animation: ${showHoverOut} 1s ease-in-out forwards;
   &:hover {
-    transform: scale(2);
     background-color: white;
     color: black;
+    animation: ${showHover} 1s ease-in-out forwards;
+    animation-fill-mode: forwards; /* Mantener las propiedades finales de la animación */
   }
 `;
 
@@ -71,11 +89,10 @@ text-transform: uppercase;
 transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
 transition-duration: 400ms;
 transition-property: color;
-&:focus,
 &:hover {
   color: #200;
+  transform: scale(0.8);
 }
-&:focus:after,
 &:hover:after {
   width: 100%;
   left: 0%;
@@ -94,11 +111,12 @@ transition-property: color;
   transition-property: width, left;
 }
 `
-
+export const HeaderButton = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: start;
+`
 export const ButtonPrev = styled(ButtonStyle)`
-  position: absolute;
-  top: 1%;
-  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   color: white;
@@ -106,11 +124,9 @@ export const ButtonPrev = styled(ButtonStyle)`
   z-index: 800;
   cursor: pointer;
   animation: ${showInWithDown} 1s ease-in-out forwards;
-  left: 1%;
 `;
 
 export const ButtonNext = styled(ButtonPrev)`
-  left: 70%;
 `;
 export const ButtonBack = styled(ButtonPrev)`
 z-index: 200;
@@ -139,15 +155,15 @@ export const Slider = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(0%, -50%);
-  img {
-    min-width: 45vmin;
-    max-width: 45vmin;
-    height: 65vmin;
-    object-fit: cover; /*hace que la imagen se ajuste y recorte según el tamaño del contenedor */
-    object-position: center center; /*centra la imagen tanto horizontal como vertical*/
-    animation: ${showInWithDown} 0.8s ease-in-out forwards;
-  }
 `;
+export const Img = styled.img`
+min-width: 45vmin;
+max-width: 45vmin;
+height: 65vmin;
+object-fit: cover; /*hace que la imagen se ajuste y recorte según el tamaño del contenedor */
+object-position: center center; /*centra la imagen tanto horizontal como vertical*/
+animation: ${showInFullScreen} 0.8s ease-in-out forwards;
+`
 export const CounterContainer = styled.div`
   position: absolute;
   bottom: 5%;

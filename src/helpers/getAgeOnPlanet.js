@@ -1,5 +1,5 @@
+import { planetData } from "../data/planetData";
 import { calculateEarthAge } from "./calculateEarthAge";
-import { planetData } from "./planetData";
 
 export const getAgeOnPlanet = (planetName, birthDate) => {
  const planet = planetData.find((planet) => planet.name === planetName);

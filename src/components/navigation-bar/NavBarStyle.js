@@ -82,7 +82,7 @@ export const LinksContainer = styled.div`
     z-index: 10;
     .link {
       font-size: 2.5rem;
-      color: #222;
+      color: #000;
       margin-top: 3rem;
       &:hover{
         color:white;
@@ -104,8 +104,10 @@ export const LinksContainer = styled.div`
     }
     .link{
 
-      &:hover .text {
-        display: inline;
+      &:hover .text{
+        position:absolute;
+transform:translateX(7px);        display: inline;
+        color:#fff;
         text-decoration: underline;
         animation: ${show} 1s ease-in-out;
       }

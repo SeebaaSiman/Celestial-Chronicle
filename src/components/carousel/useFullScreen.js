@@ -1,30 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { dataImg } from "@/data/dataImg";
 
-export const useFullScreen = (data) => {
- const [isFullScreen, setIsFullScreen] = useState(false);
- const [fullScreenIndex, setFullScreenIndex] = useState(0);
+export const useFullScreen = () => {
+ const navigate = useNavigate();
+ const { id } = useParams();
+ const [currentImage, setCurrentImage] = useState(null);
+ const [currentIndex, setCurrentIndex] = useState(0);
 
- const handleImageClick = (index) => {
-  setIsFullScreen(true);
-  setFullScreenIndex(index);
+
+ useEffect(() => {
+  const image = dataImg.find((item) => item.hasOwnProperty(id));
+  setCurrentImage(image);
+  setCurrentIndex(dataImg.indexOf(image));
+ }, []);
+
+ const goToNextImage = () => {
+  const nextIndex = (currentIndex + 1) % dataImg.length;
+  const nextImage = dataImg[nextIndex];
+  setCurrentImage(nextImage);
+  setCurrentIndex(nextIndex);
+  const nextPlanet = Object.keys(nextImage)[0];
+  navigate(`/Planets/${nextPlanet}`);
  };
 
- const handlePrevClick = () => {
-  if (fullScreenIndex > 0) {
-   setFullScreenIndex(fullScreenIndex - 1);
-  }
-  console.log(fullScreenIndex)
+ const goToPrevImage = () => {
+  const prevIndex = (currentIndex - 1 + dataImg.length) % dataImg.length;
+  const prevImage = dataImg[prevIndex];
+  setCurrentImage(prevImage);
+  setCurrentIndex(prevIndex);
+  const prevPlanet = Object.keys(prevImage)[0];
+  navigate(`/Planets/${prevPlanet}`);
  };
+ const goExitFullScreen = () => {
+  navigate("/Planets")
+ };
+ const isFirstImage = currentIndex === 0;
+ const isLastImage = currentIndex === dataImg.length - 1;
 
- const handleNextClick = () => {
-  if (fullScreenIndex < data.length - 1) {
-   setFullScreenIndex((nextIndex) => nextIndex + 1);
-  }
-  console.log(fullScreenIndex)
- };
-
- const handleExitFullScreen = () => {
-  setIsFullScreen(false);
- };
- return { isFullScreen, fullScreenIndex, handleImageClick, handlePrevClick, handleNextClick, handleExitFullScreen }
-}
+ return { isFirstImage, isLastImage, currentImage, goToNextImage, goToPrevImage, goExitFullScreen };
+};

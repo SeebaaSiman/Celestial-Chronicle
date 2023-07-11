@@ -7,7 +7,6 @@ export const Home = () => {
     <div>
       <h1>Home</h1>
       <Content>
-        {" "}
         aquí se ingresa la edad y al hacer click se guarda en el storage y manda
         a otra pág para que haga todos los cálculos. Explicar bien los cálculos
       </Content>

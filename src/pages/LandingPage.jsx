@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
-import { ButtonStyle, Content } from "../style/StylesGlobal";
+import { ButtonStyle, Content, NavLinks } from "../style/StylesGlobal";
 const LandingPageContainer = styled.div`
   margin: 1rem;
 `;
@@ -39,9 +39,9 @@ export const LandingPage = () => {
         relaciona con los diferentes cuerpos celestes. ¡Esperamos que disfrutes
         explorando el cosmos desde la comodidad de tu pantalla!
       </Content>
-      <NavLink to="/Home">
+      <NavLinks to="/Home">
         <ButtonStyle>GET START</ButtonStyle>
-      </NavLink>
+      </NavLinks>
     </LandingPageContainer>
   );
 };

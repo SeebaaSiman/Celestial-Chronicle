@@ -43,10 +43,10 @@ export const NavBar = () => {
           <span className="text">Planets </span>
         </NavLink>
 
-        <NavLink onClick={handleLinkClick} className="link" to="/History">
+        {/* <NavLink onClick={handleLinkClick} className="link" to="/History">
           <Unicons.UilChartBar style={styleIcon} />
           <span className="text">History</span>
-        </NavLink>
+        </NavLink> */}
       </LinksContainer>
 
       <Menu>

@@ -3,6 +3,7 @@
 // const apiKey = "RQKruTXbxbEwaQiKjSwqopjU5Ge9vmdLm5Gq6uGV";
 
 
+https://api.nasa.gov/juno/moons?api_key=RQKruTXbxbEwaQiKjSwqopjU5Ge9vmdLm5Gq6uGV
 
 
 // Para calcular la edad en otros planetas, es necesario conocer el tiempo de traslación de cada planeta alrededor del Sol. Estos datos están disponibles y se basan en observaciones astronómicas y mediciones precisas.

@@ -1,4 +1,5 @@
-import { createGlobalStyle, styled } from "styled-components";
+import { NavLink } from "react-router-dom";
+import { createGlobalStyle, keyframes, styled } from "styled-components";
 export const device = {
   sm: `(min-width: 480px)`,
   md: `(min-width: 768px)`,
@@ -12,9 +13,22 @@ export const BoxStyle = {
     'rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,' +
     'rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px'
 };
+export const showIn = keyframes`
+0% {
+  opacity: 0;
+  transform: scale(0.2);
+  transform: translateX(-20px);
+}
+100% {
+  opacity: 1;
+  transform: scale(1);
+}`;
+export const NavLinks = styled(NavLink)`
+text-decoration: none;
+
+`
+
 export const ButtonStyle = styled.div`
-  margin-left: auto;
-  margin-right: auto;
   height: 45px;
   width: 250px;
   border: 2px solid  rgba(255, 255, 255, 1);
@@ -22,15 +36,21 @@ export const ButtonStyle = styled.div`
   background-color: rgba(255, 255, 255, 1);
   padding: 0.625rem 1.5rem;
   text-align: center;
+margin-left: auto;
+margin-right: auto;
+  text-transform: uppercase;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: rgba(0, 0, 0, 1);
   outline: none;
   transition: all .2s ease-in-out;
   box-shadow: ${BoxStyle};
+  animation: ${showIn} 1s ease-in-out;
+
   &:hover {
   color: rgba(255, 255, 255, 1);
   background-color:  rgba(0, 0, 0, 1);
+  transform: scale(0.8);
 }
 `;
 export const Content = styled.div`
@@ -38,8 +58,8 @@ display: flex;
 justify-content: center;
 align-items: center;
   margin: 2rem;
+animation: ${showIn} 1s ease-in-out;
 `;
-
 export const StylesGlobal = createGlobalStyle`
   *{
     margin: 0;

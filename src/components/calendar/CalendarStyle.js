@@ -85,6 +85,7 @@ position:relative;
   &:hover {
     background-color: rgb(0, 0, 0);
     color: white;
+    transform: scale(0.9);
   }
 `;
 
