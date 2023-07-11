@@ -1,11 +1,10 @@
+import { FullScreenContainer, useFullScreen } from "../components/carousel";
 import {
   ButtonClose,
   ButtonNext,
   ButtonPrev,
-  FullScreenContainer,
-} from "@/components/carousel/carouselStyle";
-import { useFullScreen } from "@/components/carousel";
-import { HeaderButton } from "../components/carousel";
+  HeaderButton,
+} from "../style/button";
 
 export const FullScreenContent = () => {
   const {

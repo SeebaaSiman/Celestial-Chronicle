@@ -3,8 +3,8 @@ import { useRef, useState } from "react";
 export const useSlider = (data) => {
  const [currentIndex, setCurrentIndex] = useState(0);
 
- const cmSliderWrapper = useRef();
- const cmSlider = useRef();
+ const cmSliderWrapper = useRef(null);
+ const cmSlider = useRef(null);
  const imageRefs = useRef([]);
 
  const getWindowWidth = () =>
@@ -31,7 +31,7 @@ export const useSlider = (data) => {
   setCurrentIndex(imageIndex);
 
 
-  let animateDuration = 1800; // cuanto más alto el valor más suave y lenta las animaciones
+  let animateDuration = 28000; // cuanto más alto el valor más suave y lenta las animaciones
 
   //se utiliza la función animate en el ref cmSlider.current para animar la transformación del elemento del carousel. Se utiliza una animación de desplazamiento horizontal (translateX) aplicando el porcentaje de desplazamiento calculado.
   cmSlider.current.animate(

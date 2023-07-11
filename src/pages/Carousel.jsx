@@ -1,16 +1,16 @@
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 import {
   useSlider,
   CounterContainer,
   CounterLote,
   Slider,
   WrapperSlider,
-  ButtonBack,
   Img,
 } from "@/components/carousel";
-import { NavLink } from "react-router-dom";
 import { dataImg } from "@/data/dataImg";
 import { NavLinks } from "@/style/StylesGlobal";
+import { ButtonBack } from "@/style/button";
 
 export const Carousel = () => {
   const {
@@ -20,7 +20,6 @@ export const Carousel = () => {
     handleMouseMove,
     currentIndex,
   } = useSlider(dataImg);
-
   return (
     <WrapperSlider ref={cmSliderWrapper}>
       <NavLink to="/Age">
@@ -40,7 +39,6 @@ export const Carousel = () => {
           );
         })}
       </Slider>
-
       <CounterContainer>
         <CounterLote className="counter-number">{currentIndex + 1}</CounterLote>
         <CounterLote className="counter-separator">/</CounterLote>

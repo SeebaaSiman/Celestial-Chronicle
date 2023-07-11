@@ -70,10 +70,11 @@ export const StylesGlobal = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    user-select:none;
     scroll-behavior: smooth;
     /* cursor: none; */
     /* overflow-x: hidden; */
+    user-select: none; /* evita que se seleccione el texto */
+
 }
 body {
   overflow-x: hidden;

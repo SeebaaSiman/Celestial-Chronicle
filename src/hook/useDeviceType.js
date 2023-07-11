@@ -45,3 +45,4 @@ export default useDeviceType;
 // width: ${(props) => (props.deviceType === "desktop" ? "" : "40%")};
 
 
+
