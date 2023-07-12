@@ -1,14 +1,14 @@
 import { styled } from "styled-components";
-import { NavBar } from "@/components";
 import { CardPlanet } from "@/components/cards/CardPlanet";
 import { usePageAge } from "../hook/usePageAge";
 import { ButtonStyle, Content, NavLinks } from "../style/StylesGlobal";
+import { Navbar } from "@/components/Navbar";
 
 export const Age = () => {
   const { arrAgeResults, storedDate } = usePageAge();
   return (
     <>
-      <NavBar />
+      <Navbar />
       <Content>
         Al hacer click en cada card abre en pantalla completa la información del
         planeta que sería el carousel en full screen
