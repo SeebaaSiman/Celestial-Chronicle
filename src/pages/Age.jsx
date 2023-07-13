@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { CardPlanet } from "@/components/cards/CardPlanet";
 import { usePageAge } from "../hook/usePageAge";
 import { ButtonStyle, Content, NavLinks } from "../style/StylesGlobal";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "../components";
 
 export const Age = () => {
   const { arrAgeResults, storedDate } = usePageAge();
