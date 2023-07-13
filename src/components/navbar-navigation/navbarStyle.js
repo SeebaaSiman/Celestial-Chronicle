@@ -66,13 +66,13 @@ export const LinksContainer = styled.div`
     z-index: 10;
     ${Link} {
       font-size: 2.5rem;
-      color: #000;
+      color: #ffff;
       margin-top: 3rem;
       animation-delay: 1s;
       animation: ${linksIn} 1s ease-in-out;
 
       &:hover {
-        color: white;
+        color: #b3ff00;
       }
     }
   }

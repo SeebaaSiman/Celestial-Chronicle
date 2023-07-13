@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { BgMenuContainer, BgMenuStripe } from "./bgMenuStyle";
 
-export const BgMenu = ({ isOpen }) => {
+export const BgMenu = ({ isopen }) => {
   const [isFirstOpen, setIsFirstOpen] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (isOpen && isFirstOpen) {
+    if (isopen && isFirstOpen) {
       setIsLoaded(true);
       setIsFirstOpen(false);
     }
-  }, [isOpen, isFirstOpen]);
+  }, [isopen, isFirstOpen]);
   return (
     <>
       {isLoaded && (
-        <BgMenuContainer isOpen={isOpen} isLoaded={isLoaded}>
+        <BgMenuContainer isopen={isopen} isloaded={isLoaded}>
           <BgMenuStripe className="top" />
           <BgMenuStripe className="middle" />
           <BgMenuStripe className="bottom" />

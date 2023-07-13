@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { showInBottom, showInLeft, showInMiddle, showInRight, showInTop, showOutBottom, showOutLeft, showOutMiddle, showOutRight, showOutTop } from "./animationsNavBar";
+import { BoxStyle } from "../../style/StylesGlobal";
 export const MenuAndCloseTrigger = styled.div`
   position: absolute;
   top: 40px;
@@ -25,20 +26,23 @@ export const MenuTrigger = styled(MenuAndCloseTrigger)`
     width: 100%;
   }
   .top {
+      box-shadow: ${BoxStyle.boxShadow};
     transform: rotate(-50deg) translateY(-40%) translateX(40%);
-    animation: ${({ isOpen }) => (isOpen ? showOutTop : showInTop)} 1s
+    animation: ${({ isopen }) => (isopen ? showOutTop : showInTop)} 1s
       ease-in-out;
     animation-fill-mode: forwards;
   }
   .middle {
+      box-shadow: ${BoxStyle.boxShadow};
     transform: rotate(-50deg) scaleY(1) translateY(-50%) translateX(50%);
-    animation: ${({ isOpen }) => (isOpen ? showOutMiddle : showInMiddle)} 1s
+    animation: ${({ isopen }) => (isopen ? showOutMiddle : showInMiddle)} 1s
       ease-in-out;
     animation-fill-mode: forwards;
   }
   .bottom {
+      box-shadow: ${BoxStyle.boxShadow};
     transform: rotate(-50deg) translateY(-60%) translateX(60%);
-    animation: ${({ isOpen }) => (isOpen ? showOutBottom : showInBottom)} 1s
+    animation: ${({ isopen }) => (isopen ? showOutBottom : showInBottom)} 1s
       ease-in-out;
     animation-fill-mode: forwards;
   }
@@ -58,22 +62,26 @@ export const CloseTrigger = styled(MenuAndCloseTrigger)`
     width: 100%;
   }
   .left {
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+    opacity: ${({ isopen }) => (isopen ? 1 : 0)};
     top: 50%;
     left: 50%;
+      box-shadow: ${BoxStyle.boxShadow};
+
     transform: translate(-50%, -50%) rotate(-45deg);
-    animation: ${({ isOpen, isLoaded }) =>
-    isOpen && isLoaded ? showInLeft : showOutLeft}
+    animation: ${({ isopen, isloaded }) =>
+    isopen && isloaded ? showInLeft : showOutLeft}
       1s ease-in-out;
     animation-fill-mode: forwards;
   }
   .right {
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+    opacity: ${({ isopen }) => (isopen ? 1 : 0)};
     top: 50%;
     left: 50%;
+      box-shadow: ${BoxStyle.boxShadow};
+
     transform: translate(-50%, -50%) rotate(45deg);
-    animation: ${({ isOpen, isLoaded }) =>
-    isOpen && isLoaded ? showInRight : showOutRight}
+    animation: ${({ isopen, isloaded }) =>
+    isopen && isloaded ? showInRight : showOutRight}
       1s ease-in-out;
     animation-fill-mode: forwards;
   }

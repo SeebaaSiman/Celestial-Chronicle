@@ -13,30 +13,30 @@ export const BgMenuContainer = styled.div`
   z-index: 2;
   transform: rotate(45deg) scale(1.6);
   .top {
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    animation: ${({ isOpen, isLoaded }) =>
-    isOpen && isLoaded ? bgInLat : bgOutLat}
+    opacity: ${({ isopen }) => (isopen ? 1 : 0)};
+    animation: ${({ isopen, isloaded }) =>
+    isopen && isloaded ? bgInLat : bgOutLat}
       1s ease-in-out;
     animation-fill-mode: forwards;
   }
   .middle {
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+    opacity: ${({ isopen }) => (isopen ? 1 : 0)};
     width: 36%;
-    animation: ${({ isOpen, isLoaded }) =>
-    isOpen && isLoaded ? bgInMiddle : bgOutMiddle}
+    animation: ${({ isopen, isloaded }) =>
+    isopen && isloaded ? bgInMiddle : bgOutMiddle}
       1s ease-in-out;
     animation-fill-mode: forwards;
   }
   .bottom {
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    animation: ${({ isOpen, isLoaded }) =>
-    isOpen && isLoaded ? bgInLat : bgOutLat}
+    opacity: ${({ isopen }) => (isopen ? 1 : 0)};
+    animation: ${({ isopen, isloaded }) =>
+    isopen && isloaded ? bgInLat : bgOutLat}
       1s ease-in-out;
     animation-fill-mode: forwards;
   }
 `;
 export const BgMenuStripe = styled.div`
-  background-color: #444444;
+  background-color: #000;
   border-radius: 50px;
   width: 40%;
 `;

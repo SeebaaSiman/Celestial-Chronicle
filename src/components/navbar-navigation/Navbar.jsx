@@ -46,8 +46,8 @@ export const Navbar = () => {
       </LinksContainer>
 
       <Menu>
-        <NavBarButton isOpen={isOpen} toggleOpen={toggleOpen} />
-        <BgMenu isOpen={isOpen} />
+        <NavBarButton isopen={isOpen} toggleopen={toggleOpen} />
+        <BgMenu isopen={isOpen} />
       </Menu>
     </NavBarContainer>
   );
