@@ -3,7 +3,7 @@ import { LayoutPage } from "../style/LayoutPage";
 import {
   PageError,
   LandingPage,
-  Home,
+  Birthdate,
   Age,
   Carousel,
   FullScreenContent,
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         element: <LandingPage />,
       },
       { path: "*", element: <Navigate to="/" /> },
-      { path: "Home", element: <Home /> },
+      { path: "Birthdate", element: <Birthdate /> },
       { path: "Age", element: <Age /> },
       { path: "Planets", element: <Carousel /> },
       { path: "Planets/:id", element: <FullScreenContent /> },

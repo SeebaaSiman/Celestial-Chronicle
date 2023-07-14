@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { CardContainer, Title } from "./cardStyle";
 import { dataImg } from "../../data/dataImg";
+import { useState } from "react";
 
 export const CardPlanet = ({ planet, result }) => {
   // Buscar el objeto correspondiente en el array utilizando el string recibido del padre
@@ -8,7 +9,8 @@ export const CardPlanet = ({ planet, result }) => {
   // Obtener la URL de la imagen del objeto encontrado
   const imgsrc = planetObj ? Object.values(planetObj)[0] : null;
   const navigate = useNavigate();
-
+  const [showHover, setShowHover] = useState(false);
+  const toggleshow = () => setShowHover(!showHover);
   const onCardFullScreen = () => {
     navigate(`/Planets/${planet}`);
   };
@@ -17,7 +19,16 @@ export const CardPlanet = ({ planet, result }) => {
       <p>
         Edad en {planet}: {result}
       </p>
-      <Title>{planet}</Title>
+      <Title
+        onFocus={toggleshow}
+        onBlur={
+          <Title onFocus={toggleshow} onBlur={toggleshow}>
+            {planet}
+          </Title>
+        }
+      >
+        {planet}
+      </Title>
     </CardContainer>
   );
 };

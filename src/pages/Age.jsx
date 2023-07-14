@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
+import { Footer, Navbar } from "@/components";
 import { CardPlanet } from "@/components/cards/CardPlanet";
-import { usePageAge } from "../hook/usePageAge";
-import { ButtonStyle, Content, NavLinks } from "../style/StylesGlobal";
-import { Navbar } from "../components";
+import { usePageAge } from "@/hook/usePageAge";
+import { ButtonStyle, Content, NavLinks } from "@/style/StylesGlobal";
 
 export const Age = () => {
   const { arrAgeResults, storedDate } = usePageAge();
@@ -28,6 +28,7 @@ export const Age = () => {
       <NavLinks to="/Planets">
         <ButtonPlanets>go to planets</ButtonPlanets>
       </NavLinks>
+      <Footer />
     </>
   );
 };

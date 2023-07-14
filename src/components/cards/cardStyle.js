@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { BoxStyle, showIn } from "../../style/StylesGlobal";
+import { BoxStyle, device, showIn } from "../../style/StylesGlobal";
 
 export const Title = styled.span`
   position: absolute;
@@ -23,8 +23,8 @@ export const Title = styled.span`
 `;
 export const CardContainer = styled.div`
   position: relative;
-  width: 220px;
-  height: 250px;
+  width: 85%;
+  min-height: 450px;
   background-image: ${({ imgsrc }) => `url(${imgsrc})`};
   background-position: center;
   background-size: cover;
@@ -37,6 +37,13 @@ export const CardContainer = styled.div`
   justify-content: center;
   transition: all 1s;
   animation: ${showIn} 1.5s ease-in-out;
+  animation-fill-mode: forwards;
+@media ${device.md}{
+  width:45%;
+}
+@media ${device.lg}{
+  width:30%;
+}
   p {
     color: white;
   }

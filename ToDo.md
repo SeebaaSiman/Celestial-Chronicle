@@ -30,3 +30,6 @@ Funciona la página de planetas, anda mal en fullscreen el botón anterior y sig
 
 crear funciones que reciban el número de edad en... por el "useAgeOnPlanet" y convertirlo en años, meses,días, horas, minutos y segundos. De esa manera haré un reloj en tiempo real en cada cardPlanet.
 En F1 tengo un componente countdown
+
+
+ssebastiansiman@gmail.com

@@ -20,9 +20,9 @@ export const Navbar = () => {
   const link_data = [
     { to: "/", icon: <Unicons.UilEstate style={styleIcon} />, text: "Home" },
     {
-      to: "/Home",
+      to: "/Birthdate",
       icon: <Unicons.UilHourglass style={styleIcon} />,
-      text: "put your age",
+      text: "Birthdate",
     },
     {
       to: "/Planets",

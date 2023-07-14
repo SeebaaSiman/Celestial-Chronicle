@@ -25,7 +25,6 @@ export const showIn = keyframes`
 }`;
 export const NavLinks = styled(NavLink)`
 text-decoration: none;
-
 `
 
 export const ButtonStyle = styled.div`
@@ -60,6 +59,9 @@ align-items: center;
   margin: 2rem;
 animation: ${showIn} 1s ease-in-out;
 `;
+export const PageContainer = styled.div`
+ min-height: 100vh;
+  margin: 1rem;`
 export const StylesGlobal = createGlobalStyle`
   *{
     margin: 0;
