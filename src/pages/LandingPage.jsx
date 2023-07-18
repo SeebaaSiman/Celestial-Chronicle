@@ -1,4 +1,3 @@
-import { styled } from "styled-components";
 import {
   ButtonStyle,
   Content,
@@ -6,12 +5,12 @@ import {
   PageContainer,
 } from "../style/StylesGlobal";
 import { Footer } from "@/components/";
-const LandingPageContainer = styled(PageContainer)``;
+import { Title } from "../components/title";
 export const LandingPage = () => {
   return (
     <>
-      <LandingPageContainer>
-        <h1>Celestial Chronicle</h1>
+      <PageContainer>
+        <Title>Celestial Chronicle</Title>
         <Content>
           Celestial Chronicle es una página web que te permite calcular tu edad
           en diferentes planetas del sistema solar. La idea principal es
@@ -47,7 +46,7 @@ export const LandingPage = () => {
         <NavLinks to="/Birthdate">
           <ButtonStyle>GET START</ButtonStyle>
         </NavLinks>
-      </LandingPageContainer>
+      </PageContainer>
       <Footer />
     </>
   );

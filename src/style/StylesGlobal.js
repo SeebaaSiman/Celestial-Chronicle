@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { createGlobalStyle, keyframes, styled } from "styled-components";
+import imgTitle from "./../assets/galaxy.jpg"
+
 export const device = {
   sm: `(min-width: 480px)`,
   md: `(min-width: 768px)`,
@@ -26,7 +28,12 @@ export const showIn = keyframes`
 export const NavLinks = styled(NavLink)`
 text-decoration: none;
 `
-
+// export const Title = styled.h1`
+// background: url(${imgTitle});
+// background-clip: text;
+// color:transparent;
+// `
+/* -webkit-background-clip: text; */
 export const ButtonStyle = styled.div`
   height: 45px;
   width: 250px;

@@ -1,31 +1,44 @@
-import { useNavigate } from "react-router-dom";
 import { CardContainer, Title } from "./cardStyle";
-import { dataImg } from "../../data/dataImg";
-import { useState } from "react";
+import { CountdownTimer } from "../countdown";
+import { useCardPlanet } from "../../hook/useCardPlanet";
+import { useCountDownTimer } from "../../hook/useCountDownTimer";
 
-export const CardPlanet = ({ planet, result }) => {
-  // Buscar el objeto correspondiente en el array utilizando el string recibido del padre
-  const planetObj = dataImg?.find((obj) => Object.keys(obj)[0] === planet);
-  // Obtener la URL de la imagen del objeto encontrado
-  const imgsrc = planetObj ? Object.values(planetObj)[0] : null;
-  const navigate = useNavigate();
-  const [showHover, setShowHover] = useState(false);
-  const toggleshow = () => setShowHover(!showHover);
-  const onCardFullScreen = () => {
-    navigate(`/Planets/${planet}`);
-  };
+export const CardPlanet = ({ planet }) => {
+  const { onCardFullScreen, imgsrc, toggleshow } = useCardPlanet(planet);
+
+  const {
+    age,
+    nextBirthday,
+    daysOld,
+    years,
+    months,
+    days,
+    hours,
+    minutes,
+    seconds,
+  } = useCountDownTimer(planet);
+
   return (
-    <CardContainer imgsrc={imgsrc} onClick={onCardFullScreen}>
+    <CardContainer imgsrc={imgsrc}>
       <p>
-        Edad en {planet}: {result}
+        {parseFloat(age.toFixed(2))} years old on the {planet}
       </p>
+      <p>Next Birthday: {nextBirthday.toDateString()} </p>
+      <p>
+        {daysOld} days until your birthday on the {planet}
+      </p>
+      <CountdownTimer
+        years={years}
+        months={months}
+        days={days}
+        hours={hours}
+        minutes={minutes}
+        seconds={seconds}
+      />
       <Title
         onFocus={toggleshow}
-        onBlur={
-          <Title onFocus={toggleshow} onBlur={toggleshow}>
-            {planet}
-          </Title>
-        }
+        onBlur={toggleshow}
+        onClick={onCardFullScreen}
       >
         {planet}
       </Title>

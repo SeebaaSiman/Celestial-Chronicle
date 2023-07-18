@@ -1,11 +1,13 @@
+import { useMemo } from "react";
 import { styled } from "styled-components";
 import { Footer, Navbar } from "@/components";
 import { CardPlanet } from "@/components/cards/CardPlanet";
-import { usePageAge } from "@/hook/usePageAge";
 import { ButtonStyle, Content, NavLinks } from "@/style/StylesGlobal";
+import { planetData } from "../data/planetData";
 
 export const Age = () => {
-  const { arrAgeResults, storedDate } = usePageAge();
+  const storedDate = useMemo(() => localStorage.getItem("birthDate"), []);
+
   return (
     <>
       <Navbar />
@@ -21,8 +23,8 @@ export const Age = () => {
       <Content>Datos del local Storage: {storedDate}</Content>
 
       <WrapperCards>
-        {arrAgeResults.map((a, index) => (
-          <CardPlanet key={index} planet={a.planet} result={a.result} />
+        {planetData?.map((a, index) => (
+          <CardPlanet key={index} planet={a.name} />
         ))}
       </WrapperCards>
       <NavLinks to="/Planets">

@@ -1,21 +1,32 @@
-import { styled } from "styled-components";
 import { Content, PageContainer } from "../style/StylesGlobal";
 import { CalendarForm, Footer } from "@/components";
-const BirthdateContainer = styled(PageContainer)``;
 export const Birthdate = () => {
   return (
     <>
-      <BirthdateContainer>
-        <h1>Birthdate</h1>
+      <PageContainer>
         <Content>
-          aquí se ingresa la edad y al hacer click se guarda en el storage y
-          manda a otra pág para que haga todos los cálculos. Explicar bien los
-          cálculos
+          <h2>
+            ¿Sabías que tu edad varía en diferentes planetas del sistema solar?
+          </h2>
+        </Content>
+        <Content>
+          Esto se debe a que cada planeta tiene una duración de año y una
+          velocidad de rotación únicas, lo que afecta la forma en que el tiempo
+          se mide en esos lugares.
+        </Content>
+        <Content>
+          Completa el formulario con tu fecha de nacimiento y descubre cuántos
+          años tendrías en la Tierra, así como en Marte, Júpiter, Saturno y
+          otros fascinantes planetas. ¡Es una forma divertida de explorar cómo
+          el tiempo y la edad se perciben en nuestro vasto universo!
+        </Content>
+        <Content>
+          ¡Prepárate para un viaje único a través del tiempo y el espacio!
         </Content>
         <Content>
           <CalendarForm />
         </Content>
-      </BirthdateContainer>
+      </PageContainer>
       <Footer />
     </>
   );

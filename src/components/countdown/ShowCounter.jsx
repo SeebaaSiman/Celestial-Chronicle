@@ -1,28 +1,45 @@
 import styled from "styled-components";
-import useDeviceType from "../../../hook/useDeviceType";
 
-export const ShowCounter = ({ days, hours, minutes, seconds }) => {
+export const ShowCounter = ({
+  years,
+  months,
+  days,
+  hours,
+  minutes,
+  seconds,
+}) => {
   const arr = [
-    { text: "Días", value: days },
-    { text: "Horas", value: hours },
-    { text: "Minutos", value: minutes },
-    { text: "Segundos", value: seconds },
+    { text: "Years", value: years },
+    { text: "Months", value: months },
+    { text: "Days", value: days },
+    { text: "Hours", value: hours },
+    { text: "Minutes", value: minutes },
+    { text: "Seconds", value: seconds },
   ];
-  const deviceType = useDeviceType();
   return (
-    <CountdownContainer deviceType={deviceType}>
-      {arr.map((item, index) =>
-        item.text === "Días" && item.value === 0 ? null : (
+    <CountdownContainer>
+      {arr.map((item, index) => {
+        if (
+          (item.text === "Years" && item.value === 0) ||
+          (item.text === "Months" && item.value === 0) ||
+          (item.text === "Days" && item.value === 0)
+        ) {
+          return null;
+        }
+
+        return (
           <div key={index}>
             <span>{item.value}</span>
             <span>{item.text}</span>
           </div>
-        )
-      )}
+        );
+      })}
     </CountdownContainer>
   );
 };
 const CountdownContainer = styled.div`
+  color: blue;
+  background-color: white;
   margin-top: 1rem;
   margin-bottom: 1rem;
   display: flex;
@@ -34,6 +51,6 @@ const CountdownContainer = styled.div`
     margin: 1rem;
     justify-content: center;
     align-items: center;
-    width: ${(props) => (props.deviceType === "desktop" ? "" : "40%")};
+    width: 100%;
   }
 `;
