@@ -20,21 +20,31 @@ export const CardPlanet = ({ planet }) => {
 
   return (
     <CardContainer imgsrc={imgsrc}>
-      <p>
-        {parseFloat(age.toFixed(2))} years old on the {planet}
-      </p>
-      <p>Next Birthday: {nextBirthday.toDateString()} </p>
-      <p>
-        {daysOld} days until your birthday on the {planet}
-      </p>
-      <CountdownTimer
-        years={years}
-        months={months}
-        days={days}
-        hours={hours}
-        minutes={minutes}
-        seconds={seconds}
-      />
+      <span>
+        <h2>
+          {age.years === 0
+            ? `${age.months} months and ${age.days} days old on the ${planet}`
+            : `
+         ${age.years} years ${age.months} months old on the ${planet}
+         `}
+        </h2>
+        <h4>Next Birthday: {nextBirthday.toDateString()} </h4>
+      </span>
+
+      <span>
+        <h4>
+          {daysOld} days until your birthday on the {planet}
+        </h4>
+        <CountdownTimer
+          years={years}
+          months={months}
+          days={days}
+          hours={hours}
+          minutes={minutes}
+          seconds={seconds}
+        />
+      </span>
+
       <Title
         onFocus={toggleshow}
         onBlur={toggleshow}

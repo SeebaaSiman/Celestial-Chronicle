@@ -50,13 +50,13 @@ margin-right: auto;
   color: rgba(0, 0, 0, 1);
   outline: none;
   transition: all .2s ease-in-out;
-  box-shadow: ${BoxStyle};
+  box-shadow: ${BoxStyle.boxShadow};
   animation: ${showIn} 1s ease-in-out;
 
   &:hover {
   color: rgba(255, 255, 255, 1);
   background-color:  rgba(0, 0, 0, 1);
-  transform: scale(0.8);
+  transform: scale(0.9);
 }
 `;
 export const Content = styled.div`

@@ -5,13 +5,18 @@ import { calculateDaysToNextBirthdayOnPlanet } from "../helpers/calculateDaysToN
 import { useState } from "react";
 import { useEffect } from "react";
 import { calculateTimeRemainingForNextBirthday } from "../helpers/calculateTimeRemainingForNextBirthday";
+import { formattedYearsOld } from "../helpers/formattedYearsOld";
 
 export const useCountDownTimer = (planet) => {
  const storedDate = useMemo(() => localStorage.getItem("birthDate"), []);
- const age = useMemo(
-  () => calculateAgeOnPlanet(storedDate, planet),
-  [planet, storedDate]
- );
+ // const age = useMemo(
+ //  () => calculateAgeOnPlanet(storedDate, planet),
+ //  [planet, storedDate]
+ // );
+ const age = useMemo(() => {
+  const ageOnPlanet = calculateAgeOnPlanet(storedDate, planet);
+  return formattedYearsOld(ageOnPlanet);
+}, [planet, storedDate]);
  const nextBirthday = useMemo(
   () => calculateNextBirthdayOnPlanet(storedDate, planet),
   [planet, storedDate]

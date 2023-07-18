@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BoxStyle, device } from "../../style/StylesGlobal";
 
 export const ShowCounter = ({
   years,
@@ -38,19 +39,26 @@ export const ShowCounter = ({
   );
 };
 const CountdownContainer = styled.div`
-  color: blue;
-  background-color: white;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  color: white;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+
   div {
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    padding: 10px;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 15%;
+    box-shadow: ${BoxStyle.boxShadow};
+    @media ${device.md} {
+      width: 50%;
+    }
+    @media ${device.lg} {
+      width: 30%;
+    }
   }
 `;
