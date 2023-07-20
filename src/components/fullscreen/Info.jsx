@@ -1,16 +1,16 @@
-import { useFetch } from "../../hook/useFetch";
-import { LoaderaAtronaut } from "../Loader/LoaderaAtronaut";
 import { useState } from "react";
+import { useFetch } from "@/hook/useFetch";
 import { ModalFullScreen } from "./ModalFullScreen";
 import { InfoContainer, InfoText } from "./infoFullScreenStyle";
+import { LoaderAtronaut } from "../Loader";
 
-export const InfoFullScreen = (planet) => {
+export const Info = (planet) => {
   const [isLoading, setIsLoading] = useState(false);
   const toggle = () => setIsLoading(!isLoading);
   const url = `https://api.le-systeme-solaire.net/rest/bodies/${planet.planet}`;
   const { data, error, loading } = useFetch(url);
   if (loading) {
-    return <LoaderaAtronaut />;
+    return <LoaderAtronaut />;
   }
 
   if (error) {

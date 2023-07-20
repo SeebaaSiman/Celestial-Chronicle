@@ -1,6 +1,6 @@
 import img from "@/assets/astronauta.gif";
 import { styled } from "styled-components";
-export const LoaderaAtronaut = () => {
+export const LoaderAtronaut = () => {
   return (
     <Container>
       <img src={img} alt="astronauta" />

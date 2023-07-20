@@ -1,6 +1,6 @@
 import * as Unicons from "@iconscout/react-unicons";
 import { FullScreenContainer } from "../components/fullscreen/fullScreenStyle";
-import { InfoFullScreen } from "../components/fullscreen/infoFullScreen";
+import { Info } from "../components/fullscreen/Info";
 import { useFullScreenSlider } from "../components/fullscreen/useFullScreenSlider";
 import {
   ButtonClose,
@@ -20,7 +20,6 @@ export const FullScreenContent = () => {
   } = useFullScreenSlider();
   const planetName = currentImage ? Object.keys(currentImage)[0] : "";
   const imageUrl = currentImage ? currentImage[planetName] : "";
-  const planet = planetName;
   const styleIcon = {
     color: "#b3ff00",
     transform: "scale(1.5)",
@@ -36,8 +35,8 @@ export const FullScreenContent = () => {
           <Unicons.UilArrowRight style={styleIcon} />
         </ButtonNext>
       </HeaderButton>
-      <InfoFullScreen planet={planet} />
-      
+      <Info planet={planetName} />
+
       <ButtonClose onClick={goExitFullScreen}>
         <Unicons.UilMultiply style={styleIcon} />
       </ButtonClose>
