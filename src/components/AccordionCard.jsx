@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as Unicons from "@iconscout/react-unicons";
 import styled from "styled-components";
+import { showIn } from "../style/StylesGlobal";
 
 export const AccordionCard = ({ title, children }) => {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,7 @@ export const AccordionCard = ({ title, children }) => {
       <CardHeader onClick={toggleOpen}>
         <CardTitle open={open}>{title}</CardTitle>
         <CardArrow open={open}>
-          {open ? <Unicons.UilParagraph   /> : <Unicons.UilPlus  />}
+          {open ? <Unicons.UilParagraph /> : <Unicons.UilPlus />}
         </CardArrow>
       </CardHeader>
       <CardContent open={open}>{children}</CardContent>
@@ -18,8 +19,8 @@ export const AccordionCard = ({ title, children }) => {
   );
 };
 const CardWrapper = styled.div`
-  padding: 1rem;
-  margin: 1rem;
+  margin: 2rem;
+  animation: ${showIn} 1s ease-in-out;
 `;
 
 const CardHeader = styled.div`
@@ -30,21 +31,26 @@ const CardHeader = styled.div`
 `;
 
 const CardTitle = styled.h2`
-  margin-left: auto;
-  margin-right: auto;
-  visibility: ${({ open }) => (open ? "hidden" : "")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  opacity: ${({ open }) => (open ? "0.5" : "1")};
+  color: ${({ open }) => (open ? "#000" : "#222222")};
 `;
 
-const CardArrow = styled.span`
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-`;
+const CardArrow = styled.span``;
 
 const CardContent = styled.div`
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   overflow: hidden;
   width: 100%;
-  height: ${({ open }) => (open ? "auto" : "0")};
-  transition: height 1s ease-in-out;
+  max-height: ${({ open }) => (open ? "auto" : "0")};
+  transform: ${({ open }) =>
+    open ? "translate(0%, 0%)" : "translate(0%, 20%)"};
+  transition: all 1s ease-in-out;
+  animation-fill-mode: forwards;
+  h3 {
+    font-weight: normal;
+  }
 `;

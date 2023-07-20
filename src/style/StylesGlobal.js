@@ -65,6 +65,15 @@ justify-content: center;
 align-items: center;
   margin: 2rem;
 animation: ${showIn} 1s ease-in-out;
+p,h3{
+  font-size: 1rem;
+  font-weight: normal;
+  @media ${device.md}{
+    font-size: 1.5rem;
+
+  }
+}
+
 `;
 export const PageContainer = styled.div`
  min-height: 100vh;
@@ -74,6 +83,7 @@ export const StylesGlobal = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Serif';
   }
 *,*::before,*::after{
     margin: 0;

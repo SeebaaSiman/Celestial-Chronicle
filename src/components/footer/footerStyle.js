@@ -16,24 +16,27 @@ export const StyledFooter = styled.footer`
   font-size: 14px;
   letter-spacing: 0.6px;
   @media (min-width: 768px) {
+    font-family: "Bebas Neue";
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: left;
   }
-`;
+  `;
 
 export const Copyright = styled.div`
-  color: #f1f1f1;
-  @media (min-width: 768px) {
-    /* order: 1; */
-    margin-right: auto;
-  }
+font-family: "Bebas Neue";
+color: #f1f1f1;
+@media (min-width: 768px) {
+  /* order: 1; */
+  margin-right: auto;
+}
 `;
 
 export const Links = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+font-family: "Bebas Neue";
+display: flex;
+flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-top: 10px;
@@ -45,6 +48,7 @@ export const Links = styled.div`
   }
 
   a {
+    font-family: "Bebas Neue";
     text-decoration: none;
     position: relative;
     color: #f1f1f1;

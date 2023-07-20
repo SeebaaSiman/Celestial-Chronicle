@@ -1,35 +1,58 @@
 import styled from "styled-components";
-import backgroundImage from "./../../assets/galaxy.jpg";
+import backgroundImage from "./../../assets/back.mp4";
+import { device } from "../../style/StylesGlobal";
 
 const TitleContainer = styled.div`
   position: relative;
-  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 85px;
   overflow: hidden;
-`;
+  @media ${device.md} {
+    height: 115px;
+  }
+  @media ${device.lg} {
+    height: 145px;
+  }
 
-const TitleText = styled.h1`
-  font-size: 48px;
-  font-weight: bold;
-  color: transparent;
-  background-image: url(${backgroundImage});
-  -webkit-background-clip: text;
-  background-clip: text;
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
-
-const BackgroundImage = styled.img`
+const Label = styled.div`
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
+  background-color: #000;
+  font-family: "Roboto Serif";
+  font-weight: bold;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  mix-blend-mode: multiply;
+  @media ${device.md} {
+    font-size: 60px;
+  }
+  @media ${device.lg} {
+    font-size: 70px;
+  }
 `;
-
-export const Title = () => {
+export const Title = ({ children }) => {
   return (
     <TitleContainer>
-      <TitleText>Celestial Chronicle</TitleText>
-      <BackgroundImage src={backgroundImage} alt="Imagen de fondo" />
+      <video autoPlay loop muted>
+        <source src={backgroundImage} type="video/mp4" />
+      </video>
+      <Label>
+        <h1>{children}</h1>
+      </Label>
     </TitleContainer>
   );
 };

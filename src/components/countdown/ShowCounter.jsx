@@ -52,7 +52,7 @@ const CountdownContainer = styled.div`
     padding: 10px;
     justify-content: center;
     align-items: center;
-    width: 15%;
+    width: 25%;
     box-shadow: ${BoxStyle.boxShadow};
     @media ${device.md} {
       width: 50%;
