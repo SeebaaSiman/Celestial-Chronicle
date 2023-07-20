@@ -12,14 +12,6 @@ const showInWithDown = keyframes`
     }
   `;
 
-/* Si hay evento hover hay interaccion con el mouse */
-/* @media (hover:hover) {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background-color: black;
-  width: 100vw;
-} */
 const showInFullScreen = keyframes`
    0% {
       opacity: 0;
@@ -77,12 +69,12 @@ animation: ${showInFullScreen} 0.8s ease-in-out forwards;
 
 `
 export const CounterContainer = styled.div`
-
 @media ${device.sm}{
   position: absolute;
   bottom: 5%;
   left: 50%;
-  color: white;
+  color:#b3ff00;
+
 }
 
 `;

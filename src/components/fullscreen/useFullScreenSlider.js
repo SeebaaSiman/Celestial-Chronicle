@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { dataImg } from "@/data/dataImg";
 
-export const useFullScreen = () => {
+export const useFullScreenSlider = () => {
  const navigate = useNavigate();
  const { id } = useParams();
  const [currentImage, setCurrentImage] = useState(null);
@@ -37,6 +37,10 @@ export const useFullScreen = () => {
  };
  const isFirstImage = currentIndex === 0;
  const isLastImage = currentIndex === dataImg.length - 1;
+
+
+
+
 
  return { isFirstImage, isLastImage, currentImage, goToNextImage, goToPrevImage, goExitFullScreen };
 };

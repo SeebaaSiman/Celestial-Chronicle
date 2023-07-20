@@ -1,19 +1,35 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
-export const useAxios = (url) => {
+export const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [cachedData, setCachedData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
 
       try {
-        const response = await axios.get(url);
-        setData(response.data);
+        // Verificar si los datos están en cache
+        if (cachedData && cachedData.url === url) {
+          setData(cachedData.data);
+        } else {
+          const response = await fetch(url);
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const data = await response.json();
+          setData(data);
+
+          // Almacenar la respuesta en el cache
+          setCachedData({ url, data });
+        }
         setLoading(false);
+
+
       } catch (error) {
         setError(error);
         setLoading(false);
@@ -21,10 +37,11 @@ export const useAxios = (url) => {
     };
 
     fetchData();
-  }, [url]);
+  }, [url, cachedData]);
 
   return { data, error, loading };
 };
+
 
 // Modo de uso
 

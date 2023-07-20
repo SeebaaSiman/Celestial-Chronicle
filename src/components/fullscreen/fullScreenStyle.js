@@ -20,15 +20,15 @@ export const FullScreenContainer = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-image: ${(props) => (props.imageUrl ? `url(${props.imageUrl})` : 'none')};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center center;
+  animation: ${showInFullScreen} 0.8s ease-in-out forwards;
+  color:white;
   z-index: 100;
-  img {
-position:absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 200;
-    object-fit: cover;
-    object-position: center center;
-    animation: ${showInFullScreen} 0.8s ease-in-out forwards;
-  }
 `;
+
+

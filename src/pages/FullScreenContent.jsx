@@ -1,4 +1,7 @@
-import { FullScreenContainer, useFullScreen } from "../components/carousel";
+import * as Unicons from "@iconscout/react-unicons";
+import { FullScreenContainer } from "../components/fullscreen/fullScreenStyle";
+import { InfoFullScreen } from "../components/fullscreen/infoFullScreen";
+import { useFullScreenSlider } from "../components/fullscreen/useFullScreenSlider";
 import {
   ButtonClose,
   ButtonNext,
@@ -14,27 +17,30 @@ export const FullScreenContent = () => {
     goExitFullScreen,
     isFirstImage,
     isLastImage,
-  } = useFullScreen();
-
-  if (!currentImage) {
-    return <div>Cargando...</div>;
-  }
+  } = useFullScreenSlider();
   const planetName = currentImage ? Object.keys(currentImage)[0] : "";
   const imageUrl = currentImage ? currentImage[planetName] : "";
+  const planet = planetName;
+  const styleIcon = {
+    color: "#b3ff00",
+    transform: "scale(1.5)",
+  };
 
   return (
-    <FullScreenContainer>
-      <img src={imageUrl} alt={planetName} />
+    <FullScreenContainer imageUrl={imageUrl}>
       <HeaderButton>
         <ButtonPrev onClick={goToPrevImage} disabled={isFirstImage}>
-          Anterior
+          <Unicons.UilArrowLeft style={styleIcon} />
         </ButtonPrev>
         <ButtonNext onClick={goToNextImage} disabled={isLastImage}>
-          Siguiente
+          <Unicons.UilArrowRight style={styleIcon} />
         </ButtonNext>
       </HeaderButton>
-
-      <ButtonClose onClick={goExitFullScreen}>X</ButtonClose>
+      <InfoFullScreen planet={planet} />
+      
+      <ButtonClose onClick={goExitFullScreen}>
+        <Unicons.UilMultiply style={styleIcon} />
+      </ButtonClose>
     </FullScreenContainer>
   );
 };

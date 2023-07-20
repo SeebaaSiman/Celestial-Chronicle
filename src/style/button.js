@@ -1,4 +1,5 @@
 import { keyframes, styled } from "styled-components";
+import { device } from "./StylesGlobal";
 
 const showHover = keyframes`
 100%{
@@ -24,18 +25,21 @@ const showInWithDown = keyframes`
     }
   `;
 export const ButtonClose = styled.button`
-  position: absolute;
-  bottom: 0%;
-  left: 50%;
-  padding: .5rem;
+position:absolute;
+left: 50%;
+padding: .5rem;
   background-color: transparent;
   border-radius:10px;
   border: none;
   color: white;
   font-size: 24px;
-  z-index: 800;
+  z-index: 600;
   cursor: pointer;
   animation: ${showHoverOut} 1s ease-in-out forwards;
+  @media ${device.sm}{
+    bottom: 0%;
+
+  }
   &:hover {
     background-color: white;
     color: black;
@@ -73,7 +77,7 @@ transition-property: color;
   position: absolute;
   width: 0%;
   height: 2px;
-  background-color: #fff;
+  background-color: #b3ff00;
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-duration: 400ms;
   transition-property: width, left;
@@ -88,8 +92,9 @@ export const ButtonPrev = styled(ButtonDefault)`
   background-color: transparent;
   border: none;
   color: white;
-  font-size: 24px;
-  z-index: 800;
+  /* height:40px; */
+  /* font-size: 44px; */
+  z-index: 600;
   cursor: pointer;
   animation: ${showInWithDown} 1s ease-in-out forwards;
 `;
@@ -100,5 +105,7 @@ export const ButtonBack = styled(ButtonPrev)`
 position:absolute;
 top:0;
 left:0;
+color:#b3ff00;
+
 z-index: 200;
 `
