@@ -9,6 +9,7 @@ const TitleContainer = styled.div`
   width: 100%;
   height: 85px;
   overflow: hidden;
+
   @media ${device.md} {
     height: 115px;
   }
@@ -28,6 +29,7 @@ const Label = styled.div`
   top: 0;
   background-color: #000;
   font-family: "Roboto Serif";
+  text-transform: uppercase;
   font-weight: bold;
   width: 100%;
   height: 100%;
@@ -35,8 +37,11 @@ const Label = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+  font-size: 24px;
   mix-blend-mode: multiply;
+  @media ${device.sm} {
+    font-size: 37px;
+  }
   @media ${device.md} {
     font-size: 60px;
   }

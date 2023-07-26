@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BoxStyle, device } from "../../style/StylesGlobal";
+import { useLanguage } from "../../language/LanguageContext";
 
 export const ShowCounter = ({
   years,
@@ -9,21 +10,22 @@ export const ShowCounter = ({
   minutes,
   seconds,
 }) => {
+  const { texts } = useLanguage();
   const arr = [
-    { text: "Years", value: years },
-    { text: "Months", value: months },
-    { text: "Days", value: days },
-    { text: "Hours", value: hours },
-    { text: "Minutes", value: minutes },
-    { text: "Seconds", value: seconds },
+    { text: `${texts.showCounter1}`, value: years },
+    { text: `${texts.showCounter2}`, value: months },
+    { text: `${texts.showCounter3}`, value: days },
+    { text: `${texts.showCounter4}`, value: hours },
+    { text: `${texts.showCounter5}`, value: minutes },
+    { text: `${texts.showCounter6}`, value: seconds },
   ];
   return (
     <CountdownContainer>
-      {arr.map((item, index) => {
+      {arr?.map((item, index) => {
         if (
-          (item.text === "Years" && item.value === 0) ||
-          (item.text === "Months" && item.value === 0) ||
-          (item.text === "Days" && item.value === 0)
+          (item.text === `${texts.showCounter1}` && item.value === 0) ||
+          (item.text === `${texts.showCounter2}` && item.value === 0) ||
+          (item.text === `${texts.showCounter3}` && item.value === 0)
         ) {
           return null;
         }

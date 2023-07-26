@@ -28,13 +28,12 @@ export const InfoContainer = styled.div`
   `;
 export const InfoText = styled.div`
     overflow: scroll;
-  @media ${device.lg} {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-  }
-
+    @media ${device.lg} {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
   h5,
   h4,
   p {
@@ -42,7 +41,7 @@ export const InfoText = styled.div`
     font-size: 1rem;
     color: #000;
     border-radius: 15px;
-    padding: 4px;
+    padding: 6px;
     margin-top: 10px;
     margin-right: 6px;
     box-shadow: ${BoxStyle.boxShadow};

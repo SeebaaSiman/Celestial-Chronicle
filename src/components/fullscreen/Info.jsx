@@ -3,10 +3,12 @@ import { useFetch } from "@/hook/useFetch";
 import { ModalFullScreen } from "./ModalFullScreen";
 import { InfoContainer, InfoText } from "./infoFullScreenStyle";
 import { LoaderAtronaut } from "../Loader";
+import { useLanguage } from "../../language/LanguageContext";
 
 export const Info = (planet) => {
   const [isLoading, setIsLoading] = useState(false);
   const toggle = () => setIsLoading(!isLoading);
+  const { texts } = useLanguage();
   const url = `https://api.le-systeme-solaire.net/rest/bodies/${planet.planet}`;
   const { data, error, loading } = useFetch(url);
   if (loading) {
@@ -25,46 +27,55 @@ export const Info = (planet) => {
       <h1>{data?.englishName}</h1>
       <InfoText>
         {data?.discoveredBy || data?.discoveryDate ? (
-          <>
-            <h5>Discovered</h5>
-            <p>By: {data?.discoveredBy}</p>
-            <p>Date: {data?.discoveryDate}</p>
-          </>
+          <p>
+            {texts.discovered}
+            {data?.discoveredBy},{texts.date}
+            {data?.discoveryDate}
+          </p>
         ) : null}
-        <h5>Distance of sun (km)</h5>
+        <h5>{texts.distance}(km)</h5>
         <p>
-          Perihelio: {data?.perihelion?.toLocaleString()} (Punto más cercano al
-          Sol en la órbita heliocéntrica de un cuerpo celeste)
+          Perihelio: {data?.perihelion?.toLocaleString()} ({texts.perihelio})
         </p>
         <p>
-          Afelio: {data?.aphelion?.toLocaleString()} (Punto más alejado de la
-          órbita de un planeta alrededor del Sol. Es el opuesto al perihelio )
+          Afelio: {data?.aphelion?.toLocaleString()} ({texts.afelio})
         </p>
-        <p>Radio ecuatorial {data?.equaRadius?.toLocaleString()} km</p>
         <p>
-          Masa del objeto: {data?.mass?.massValue} x 10
+          {texts.ecuadorian}
+          {data?.equaRadius?.toLocaleString()} km
+        </p>
+        <p>
+          {texts.mass}
+          {data?.mass?.massValue} x 10
           <sup>{data?.mass?.massExponent}</sup> km<sup>3</sup>
         </p>
         <p>
-          Temperatura media {data?.avgTemp}K |
-          {kelvinToCelsius(data?.avgTemp)?.toFixed(2)}°C
-        </p>
-        <p>gravedad {data?.gravity}</p>
-        <p>
-          Volumen del objeto: {data?.vol?.volValue} x 10
-          <sup>{data?.vol?.volExponent}</sup> km<sup>3</sup>
+          {texts.temperature}
+          {data?.avgTemp}K |{kelvinToCelsius(data?.avgTemp)?.toFixed(2)}°C
         </p>
         <p>
-          Período sideral en días terrestres {data?.sideralOrbit}(tiempo que
-          toma un objeto para hacer una órbita completa)
+          {texts.gravity}
+          {data?.gravity}
         </p>
         <p>
-          Rotación sideral en horas {data?.sideralRotation} (tiempo requerido
-          para que la estrella complete una revolución sobre sí misma)
+          {texts.volume}
+          {data?.vol?.volValue} x 10
+          <sup>{data?.vol?.volExponent}</sup>km<sup>3</sup>
+        </p>
+        <p>
+          {texts.sideral}
+          {data?.sideralOrbit} ({texts.sideralInfo})
+        </p>
+        <p>
+          {texts.rotation}
+          {data?.sideralRotation} ({texts.rotationInfo})
         </p>
       </InfoText>
       {data?.moons?.length === 0 || data?.moons === null ? null : (
-        <h4 onClick={toggle}> - Moons({data?.moons?.length}) - </h4>
+        <h4 onClick={toggle}>
+          {" "}
+          - {texts.moons} ({data?.moons?.length}) -{" "}
+        </h4>
       )}
 
       <ModalFullScreen isLoading={isLoading} toggle={toggle}>

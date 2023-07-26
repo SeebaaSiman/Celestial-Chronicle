@@ -11,6 +11,7 @@ import {
 import { dataImg } from "@/data/dataImg";
 import { NavLinks } from "@/style/StylesGlobal";
 import { ButtonBack } from "@/style/button";
+import { useLanguage } from "../language/LanguageContext";
 
 export const Carousel = () => {
   const {
@@ -20,10 +21,11 @@ export const Carousel = () => {
     handleMouseMove,
     currentIndex,
   } = useSlider(dataImg);
+  const { texts } = useLanguage();
   return (
     <WrapperSlider ref={cmSliderWrapper}>
       <NavLink to="/Age">
-        <ButtonBack>Back</ButtonBack>
+        <ButtonBack>{texts.buttonCarousel}</ButtonBack>
       </NavLink>
       <Slider ref={cmSlider} onMouseMove={handleMouseMove}>
         {dataImg.map((item, index) => {

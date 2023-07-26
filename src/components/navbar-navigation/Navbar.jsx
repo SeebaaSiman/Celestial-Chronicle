@@ -10,6 +10,7 @@ import {
   Text,
 } from "./navbarStyle";
 import { NavBarButton } from "./NavBarButton";
+import { useLanguage } from "../../language/LanguageContext";
 export const Navbar = () => {
   const styleIcon = {
     color: "white",
@@ -17,26 +18,31 @@ export const Navbar = () => {
     marginRight: "0.5rem",
     height: "100%",
   };
+  const { texts } = useLanguage();
   const link_data = [
-    { to: "/", icon: <Unicons.UilEstate style={styleIcon} />, text: "Home" },
+    {
+      to: "/",
+      icon: <Unicons.UilEstate style={styleIcon} />,
+      text: `${texts.home}`,
+    },
     {
       to: "/Birthdate",
       icon: <Unicons.UilHourglass style={styleIcon} />,
-      text: "Birthdate",
+      text: `${texts.birthdate}`,
     },
     {
       to: "/Planets",
       icon: <Unicons.UilTelescope style={styleIcon} />,
-      text: "Planets",
+      text: `${texts.planets}`,
     },
   ];
-  const { isOpen, handleLinkClick, toggleOpen } = useNavBarLineal();
+  const { isopen, handleLinkClick, toggleOpen } = useNavBarLineal();
 
   return (
     <NavBarContainer>
       <img src={logo} alt="Logo" style={{ height: "4.6rem" }} />
 
-      <LinksContainer className={`${isOpen ? "open-menu" : ""} `}>
+      <LinksContainer className={`${isopen ? "open-menu" : ""} `}>
         {link_data.map((l, index) => (
           <Link onClick={handleLinkClick} to={l.to} key={index}>
             {l.icon}
@@ -46,8 +52,8 @@ export const Navbar = () => {
       </LinksContainer>
 
       <Menu>
-        <NavBarButton isopen={isOpen} toggleopen={toggleOpen} />
-        <BgMenu isopen={isOpen} />
+        <NavBarButton isopen={isopen} toggleopen={toggleOpen} />
+        <BgMenu isopen={isopen} />
       </Menu>
     </NavBarContainer>
   );

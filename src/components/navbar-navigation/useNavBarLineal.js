@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 export const useNavBarLineal = () => {
- const [isOpen, setIsOpen] = useState(false);
+ const [isopen, setIsOpen] = useState(false);
 
- const toggleOpen = () => setIsOpen(!isOpen);
+ const toggleOpen = () => setIsOpen(!isopen);
 
  const handleLinkClick = () => {
-  if (window.innerWidth < 768 && isOpen) {
+  if (window.innerWidth < 768 && isopen) {
    setIsOpen(false);
   }
  };
@@ -20,5 +20,5 @@ export const useNavBarLineal = () => {
   return () => window.removeEventListener("resize", handleResize);
  }, []);
 
- return { isOpen, handleLinkClick, toggleOpen }
+ return { isopen, handleLinkClick, toggleOpen }
 }

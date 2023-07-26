@@ -1,3 +1,4 @@
+import { useLanguage } from "../../language/LanguageContext";
 import { LoaderMoon } from "../Loader/LoaderMoon";
 import { BtnSubmit, Card, InputBox, Li, Ul } from "./CalendarStyle";
 import { useCalendarForm } from "./useCalendarForm";
@@ -12,7 +13,7 @@ export const CalendarForm = () => {
     onSubmit,
     Loading,
   } = useCalendarForm();
-
+  const { texts } = useLanguage();
   return (
     <Card>
       <form onSubmit={onSubmit}>
@@ -53,7 +54,7 @@ export const CalendarForm = () => {
           );
         })}
         <BtnSubmit type="submit">
-          {Loading ? <LoaderMoon /> : "Enter"}
+          {Loading ? <LoaderMoon /> : `${texts.buttonCalendar}`}
         </BtnSubmit>
       </form>
     </Card>

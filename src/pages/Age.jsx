@@ -4,51 +4,29 @@ import { CardPlanet } from "@/components/cards/CardPlanet";
 import { ButtonStyle, Content, NavLinks } from "@/style/StylesGlobal";
 import { planetData } from "../data/planetData";
 import { AccordionCard } from "../components/AccordionCard";
+import { useLanguage } from "../language/LanguageContext";
 
 export const Age = () => {
+  const { texts } = useLanguage();
   return (
     <>
       <Navbar />
       <Content>
-        <h3>
-          Se calcula la edad del usuario en años para cada planeta utilizando la
-          ley de Kepler y datos astronómicos como los períodos orbitales y de
-          rotación de cada planeta en comparación con la Tierra. Esto permite
-          obtener edades precisas para cada planeta y mostrar cómo varían en
-          relación con la edad en la Tierra.
-        </h3>
+        <h3>{texts.ageTxt1}</h3>
       </Content>
-      <AccordionCard title={"Leyes de Kepler"}>
+      <AccordionCard title={`${texts.ageTitle1}`}>
         <h3>
-          Las leyes de Kepler son tres principios formulados por el astrónomo
-          Johannes Kepler en el siglo XVII para describir el movimiento de los
-          planetas alrededor del Sol:
+          {texts.ageTxt2}
           <br />
-          -La primera ley de Kepler: Los planetas describen órbitas elípticas
-          alrededor del Sol, donde el Sol se encuentra en uno de los focos de la
-          elipse.
+          {texts.ageTxt3}
           <br />
-          -La segunda ley de Kepler: La línea que une un planeta al Sol barre
-          áreas iguales en tiempos iguales, lo que implica que un planeta se
-          mueve más rápido cuando está más cerca del Sol y más lento cuando está
-          más lejos.
+          {texts.ageTxt4}
           <br />
-          -La tercera ley de Kepler: El cuadrado del período orbital de un
-          planeta es proporcional al cubo de su distancia media al Sol. En otras
-          palabras, cuanto más lejos está un planeta del Sol, más tiempo tarda
-          en completar una órbita.
+          {texts.ageTxt5}
         </h3>
       </AccordionCard>
-      <AccordionCard title={"Período orbital / Período de rotación"}>
-        <h3>
-          El período orbital es el tiempo que le toma a un planeta completar una
-          órbita alrededor del Sol. Es equivalente a un año en la Tierra. Por
-          otro lado, el período de rotación se refiere al tiempo que tarda un
-          planeta en girar sobre su propio eje, lo que determina la duración de
-          un día en ese planeta. Cada planeta tiene su propio período orbital y
-          de rotación, lo que resulta en días y años de diferentes duraciones en
-          cada planeta.
-        </h3>
+      <AccordionCard title={`${texts.ageTitle2}`}>
+        <h3>{texts.ageTxt6}</h3>
       </AccordionCard>
 
       <WrapperCards>
@@ -57,7 +35,7 @@ export const Age = () => {
         ))}
       </WrapperCards>
       <NavLinks to="/Planets">
-        <ButtonPlanets>go to planets</ButtonPlanets>
+        <ButtonPlanets>{texts.buttonAge}</ButtonPlanets>
       </NavLinks>
       <Footer />
     </>

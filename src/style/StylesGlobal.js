@@ -72,6 +72,17 @@ p,h3{
 export const PageContainer = styled.div`
  min-height: 100vh;
   margin: 1rem;`
+
+
+// Define tus estilos de tema aquí
+const darkTheme = {
+  backgroundColor: '#1a1a1a',
+  textColor: '#ffffff',
+};
+const lightTheme = {
+  backgroundColor: '#e2dfdd',
+  textColor: '#1a1a1a',
+};
 export const StylesGlobal = createGlobalStyle`
   *{
     margin: 0;
@@ -91,8 +102,10 @@ body {
   overflow-x: hidden;
 }
 html{
-    background-color: #e2dfdd;
-    color: #000;
+    background-color: ${(props) =>
+    props.theme === 'dark' ? darkTheme.backgroundColor : lightTheme.backgroundColor};
+    color: ${(props) =>
+    props.theme === 'dark' ? darkTheme.textColor : lightTheme.textColor};
 }
 ::-webkit-scrollbar {
     width: 0;
