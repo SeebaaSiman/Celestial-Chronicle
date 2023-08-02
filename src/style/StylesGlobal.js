@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import { createGlobalStyle, keyframes, styled } from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const device = {
   sm: `(min-width: 480px)`,

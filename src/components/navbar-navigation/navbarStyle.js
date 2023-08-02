@@ -8,7 +8,7 @@ export const NavBarContainer = styled.nav`
   height: 5rem;
   border-radius: 0 0 10px 10px;
   z-index: 200;
-  background-color: black;
+  background-color: #000000;
   display: inline-flex;
   display: flex;
   box-shadow: ${BoxStyle.boxShadow};

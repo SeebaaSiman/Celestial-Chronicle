@@ -1,4 +1,3 @@
-import * as Unicons from "@iconscout/react-unicons";
 import { useNavBarLineal } from "./useNavBarLineal";
 import logo from "@/assets/logo.gif";
 import { BgMenu } from "./BgMenu";
@@ -11,28 +10,24 @@ import {
 } from "./navbarStyle";
 import { NavBarButton } from "./NavBarButton";
 import { useLanguage } from "../../language/LanguageContext";
+import { IconBirthdate, IconHome, IconPlanets } from "../../style/icons";
+
 export const Navbar = () => {
-  const styleIcon = {
-    color: "white",
-    filter: " drop-shadow(1px 1px 1px #3333)",
-    marginRight: "0.5rem",
-    height: "100%",
-  };
   const { texts } = useLanguage();
   const link_data = [
     {
       to: "/",
-      icon: <Unicons.UilEstate style={styleIcon} />,
+      icon: <IconHome />,
       text: `${texts.home}`,
     },
     {
       to: "/Birthdate",
-      icon: <Unicons.UilHourglass style={styleIcon} />,
+      icon: <IconBirthdate />,
       text: `${texts.birthdate}`,
     },
     {
       to: "/Planets",
-      icon: <Unicons.UilTelescope style={styleIcon} />,
+      icon: <IconPlanets />,
       text: `${texts.planets}`,
     },
   ];

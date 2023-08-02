@@ -1,7 +1,7 @@
 import { useState } from "react";
-import * as Unicons from "@iconscout/react-unicons";
 import styled from "styled-components";
 import { showIn } from "../style/StylesGlobal";
+import { IconParagraph, IconPlus } from "../style/icons";
 
 export const AccordionCard = ({ title, children }) => {
   const [open, setOpen] = useState(false);
@@ -11,7 +11,7 @@ export const AccordionCard = ({ title, children }) => {
       <CardHeader onClick={toggleOpen}>
         <CardTitle open={open}>{title}</CardTitle>
         <CardArrow open={open}>
-          {open ? <Unicons.UilParagraph /> : <Unicons.UilPlus />}
+          {open ? <IconParagraph /> : <IconPlus />}
         </CardArrow>
       </CardHeader>
       <CardContent open={open}>{children}</CardContent>

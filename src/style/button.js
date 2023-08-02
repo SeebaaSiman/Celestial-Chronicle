@@ -86,7 +86,12 @@ transition-property: color;
 export const HeaderButton = styled.div`
 display: flex;
 justify-content: space-between;
-align-items: start;
+align-items: center;
+h1{
+  text-transform:uppercase;
+  animation: ${showInWithDown} 1s ease-in-out forwards;
+}
+
 `
 export const ButtonPrev = styled(ButtonDefault)`
   background-color: transparent;

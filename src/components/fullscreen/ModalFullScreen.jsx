@@ -1,21 +1,16 @@
-import * as Unicons from "@iconscout/react-unicons";
-
 import { keyframes, styled } from "styled-components";
 import { ButtonPrev } from "../../style/button";
 import { BoxStyle, device } from "../../style/StylesGlobal";
+import { IconClose } from "../../style/icons";
 
 export const ModalFullScreen = ({ isLoading, children, toggle }) => {
-  const styleIcon = {
-    color: "#b3ff00",
-    transform: "scale(1.8)",
-  };
   return (
     isLoading && (
       <Container>
         <Content>
           {children}
           <Button onClick={toggle}>
-            <Unicons.UilTimes style={styleIcon} />
+            <IconClose size={"2rem"} />
           </Button>
         </Content>
       </Container>

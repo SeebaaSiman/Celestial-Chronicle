@@ -24,7 +24,7 @@ export const Info = (planet) => {
   }
   return (
     <InfoContainer>
-      <h1>{data?.englishName}</h1>
+      {/* <h1>{data?.englishName}</h1> */}
       <InfoText>
         {data?.discoveredBy || data?.discoveryDate ? (
           <p>
